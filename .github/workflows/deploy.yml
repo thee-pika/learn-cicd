@@ -21,4 +21,10 @@ jobs:
           username: ubuntu
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
-          script: whoami
+          script: |
+            cd ci-cd
+            git pull
+            npm install
+            npm run build
+            npm run start
+
