@@ -17,14 +17,9 @@ jobs:
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
-          host: 65.0.173.163
+          host: 3.109.203.166
           username: ubuntu
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
-          script: |
-            cd ci-cd
-            git pull
-            npm install
-            npm run build
-            npm run start
-
+          script: ./deploy.sh
+    
